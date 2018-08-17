@@ -1,0 +1,47 @@
+
+
+
+body{
+  margin:0;
+  padding:0;
+  /*background:url(back.jpg) no-repeat;*/
+  background-size:cover;
+}
+
+.sidemenu{
+  background:#000;
+  height:100%;
+  position: fixed;
+  width:250px;
+  top:0;
+  right:0;
+}
+.sidemenu ul{
+  position: relative;
+  list-style:none;
+  top:20px;
+}
+.sidemenu ul li{
+  margin:10px 0;
+}
+.sidemenu ul li a{
+  color:#fff;
+  text-decoration: none;
+}
+.sidemenu ul li a:hover{
+  color:gray;
+}
+
+
+
+/* Vueの方で自動的に付与されるクラス */
+.show-enter-active, .show-leave-active {
+  transition: all .5s;
+}
+.show-enter, .show-leave-to {
+  /* まず要素はifの中で非表示になっている */
+  /* onで表示されるとまず、widthが0になる(元々は250) */
+  /* その後すぐにトランジションによって1にむかって0.5sかけて変化させていく */
+  width:0;
+
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+    <div id="navmenu">
+      <h1>{{ text }}</h1>
+      <button v-on:click="on = !on" v-if="!on">メニューを表示</button>
+      <button v-on:click="fire" v-if="on">メニューを閉じる</button>
+      <!-- onの時だけ表示する -->
+      <!-- このtransitionは一瞬しかつかないので、cssのtransitionでアニメーション時間を設定していないと検証から追えない　-->
+      <transition name="show">
+          <div class="sidemenu" v-if="on">
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Team</a></li>
+              <li><a href="#">Work</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+      </transition>
+    </div>
+<script>
+var vm = new Vue({
+  el:'#navmenu',
+  data: {
+    text: 'サイドメニューを表示するサンプル',
+    on:false
+  },
+  methods:{
+    fire:function(){
+      this.on = !this.on;
+    }
+  }
+})
+</script>
+</body>
+</html>
